@@ -1,5 +1,11 @@
 # 🧠 Finance AI - Frontend
 
+## 🚀 Live Demo
+
+👉 [Click here to view the live site](https://finance-ai-frontend.netlify.app/)
+
+-   live: https://finance-ai-frontend.netlify.app/
+
 This is the **React.js frontend** for the Finance AI application. It provides a beautiful and intuitive interface for managing personal finances, visualizing expenses, and getting AI-driven advice.
 
 ## 📦 Tech Stack
