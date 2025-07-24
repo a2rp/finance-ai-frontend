@@ -111,24 +111,32 @@ const TransactionTable = ({ refresh, onUpdate }) => {
         <>
             <Wrapper>
                 <Top>
-                    <h3>Transactions</h3>
-                    <Controls>
-                        <input
-                            type="text"
-                            placeholder="Search Cat./Desc."
-                            value={search}
-                            onChange={(e) => setSearch(e.target.value)}
-                        />
-                        <select value={filterType} onChange={(e) => setFilterType(e.target.value)}>
-                            <option value="all">All</option>
-                            <option value="income">Income</option>
-                            <option value="expense">Expense</option>
-                        </select>
-                        <button className="clear-btn" onClick={() => setShowClearModal(true)} disabled={isLoading}>
-                            {isLoading ? 'Clearing...' : 'Clear All'}
-                        </button>
+                    <section
+                        data-aos="slide-up"
+                    >
+                        <h3>Transactions</h3>
+                    </section>
 
-                    </Controls>
+                    <section
+                        data-aos="fade-in"
+                    >
+                        <Controls>
+                            <input
+                                type="text"
+                                placeholder="Search Cat./Desc."
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                            />
+                            <select value={filterType} onChange={(e) => setFilterType(e.target.value)}>
+                                <option value="all">All</option>
+                                <option value="income">Income</option>
+                                <option value="expense">Expense</option>
+                            </select>
+                            <button className="clear-btn" onClick={() => setShowClearModal(true)} disabled={isLoading}>
+                                {isLoading ? 'Clearing...' : 'Clear All'}
+                            </button>
+                        </Controls>
+                    </section>
                 </Top>
 
                 <Table>
@@ -144,7 +152,7 @@ const TransactionTable = ({ refresh, onUpdate }) => {
                     </thead>
                     <tbody>
                         {filtered.map((txn) => (
-                            <tr key={txn._id}>
+                            <tr key={txn._id} data-aos="fade-up">
                                 <td>{txn.type}</td>
                                 <td>₹ {txn.amount.toLocaleString()}</td>
                                 <td>{txn.category}</td>

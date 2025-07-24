@@ -20,29 +20,58 @@ const Dashboard = () => {
         <>
             <Styled.Wrapper>
                 <Styled.Main>
-                    <div style={{ textAlign: 'center', marginBottom: '20px', color: '#000', fontStyle: 'italic' }}>
+                    <div
+                        style={{
+                            textAlign: 'center',
+                            marginBottom: '20px',
+                            color: '#000',
+                            fontStyle: 'italic'
+                        }}
+                        data-aos="zoom-in"
+                    >
                         ⚠️ Backend is hosted on free Render server. It may take time to respond if inactive.
                     </div>
-                    <Styled.Heading>Dashboard</Styled.Heading>
+                    <Styled.Heading
+                        data-aos="fade-left"
+                    >Dashboard</Styled.Heading>
 
-                    <AiAdvisor />
+                    <section
+                        data-aos="slide-up"
+                    >
+                        <AiAdvisor />
+                    </section>
 
                     <Styled.SummaryFormWrapper>
                         <div className="col">
-                            <AddTransactionForm onAdd={handleAdd} />
+                            <section
+                                data-aos="fade-right"
+                            >
+                                <AddTransactionForm onAdd={handleAdd} />
+                            </section>
                         </div>
                         <div className="col">
-                            <SummaryCards key={`summary-${refreshKey}`} />
+                            <section
+                                data-aos="fade-left"
+                            >
+                                <SummaryCards key={`summary-${refreshKey}`} />
+                            </section>
                         </div>
                     </Styled.SummaryFormWrapper>
 
-
                     <Styled.GraphWrapper>
                         <div className="col">
-                            <IncomeExpenseChart key={`income-${refreshKey}`} />
+                            <section
+                                data-aos="fade-right"
+                            >
+                                <IncomeExpenseChart key={`income-${refreshKey}`} />
+                            </section>
                         </div>
                         <div className="col">
-                            <ExpensePieChart key={`expense-${refreshKey}`} />
+                            <section
+                                data-aos="fade-left"
+                            >
+                                <ExpensePieChart key={`expense-${refreshKey}`} />
+                            </section>
                         </div>
                     </Styled.GraphWrapper>
 

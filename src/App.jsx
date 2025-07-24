@@ -5,8 +5,9 @@ import PrivateRoute from './components/PrivateRoute';
 import Layout from './layout';
 import { ToastContainer, toast } from 'react-toastify';
 import PublicRoute from './components/PublicRoute';
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Box, CircularProgress } from '@mui/material';
+import AOS from 'aos'
 
 const Login = lazy(() => import('./pages/Login'));
 const Register = lazy(() => import('./pages/Register'));
@@ -15,6 +16,15 @@ const UserProfile = lazy(() => import('./components/UserProfile'));
 const NoPage = lazy(() => import('./pages/NoPage'));
 
 function App() {
+    useEffect(() => {
+        AOS.init({
+            duration: 300,
+            easing: 'ease-in-out',
+            once: false,
+            mirror: true
+        })
+    }, [])
+
     return (
         <>
             <AuthProvider>

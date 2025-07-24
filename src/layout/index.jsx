@@ -107,17 +107,17 @@ const Layout = ({ children }) => {
         setMenuActive(prev => !prev);
     };
 
-    useEffect(() => {
-        const handleClickOutside = (e) => {
-            if (menuRef.current && !menuRef.current.contains(e.target)) {
-                setMenuActive(false);
-            }
-        };
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, []);
+    // useEffect(() => {
+    //     const handleClickOutside = (e) => {
+    //         if (menuRef.current && !menuRef.current.contains(e.target)) {
+    //             setMenuActive(false);
+    //         }
+    //     };
+    //     document.addEventListener("mousedown", handleClickOutside);
+    //     return () => {
+    //         document.removeEventListener("mousedown", handleClickOutside);
+    //     };
+    // }, []);
 
     return (
         <Styled.Wrapper>
@@ -137,12 +137,12 @@ const Layout = ({ children }) => {
                         <nav>
                             <ul>
                                 <li>
-                                    <NavLink to="/" onClick={() => setMenuActive(false)}>
+                                    <NavLink to="/" className={"link"} onClick={() => setMenuActive(false)}>
                                         <MdDashboardCustomize className="icon" /> Dashboard
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/profile" onClick={() => setMenuActive(false)}>
+                                    <NavLink to="/profile" className={"link"} onClick={() => setMenuActive(false)}>
                                         <CgProfile className="icon" /> Profile
                                     </NavLink>
                                 </li>

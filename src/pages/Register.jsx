@@ -33,15 +33,42 @@ const Register = () => {
         <>
             <Styled.Wrapper>
                 <div className="main">
-                    <h1 className='heading'>Register</h1>
+                    <h1
+                        className='heading'
+                        data-aos="zoom-in"
+                    >Register</h1>
                     <form onSubmit={handleSubmit}>
-                        <input name="name" placeholder="Name" onChange={handleChange} required />
-                        <input name="email" placeholder="Email" onChange={handleChange} required />
-                        <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
-                        <button type="submit">Register</button>
+                        <input
+                            name="name"
+                            placeholder="Name"
+                            onChange={handleChange}
+                            required
+                            data-aos="fade-left"
+                        />
+                        <input
+                            name="email"
+                            placeholder="Email"
+                            onChange={handleChange}
+                            required
+                            data-aos="fade-right"
+                        />
+                        <input
+                            name="password"
+                            type="password"
+                            placeholder="Password"
+                            onChange={handleChange}
+                            required
+                            data-aos="fade-left"
+                        />
+                        <button
+                            type="submit"
+                            data-aos="zoom-in"
+                        >Register</button>
                     </form>
                     <div className="alreadyHaveAnAccount">
-                        <p>
+                        <p
+                            data-aos="fade-right"
+                        >
                             Already have an account? <a href="/login">Login</a>
                         </p>
                     </div>
@@ -72,6 +99,7 @@ const Styled = {
             background: #f9f9f9;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
 
             .heading {
                 margin-bottom: 20px;

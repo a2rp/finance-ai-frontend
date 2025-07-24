@@ -12,6 +12,7 @@ This is the **React.js frontend** for the Finance AI application. It provides a 
 
 -   **React 18 + Vite**
 -   **Styled-Components**
+-   **Aos animations**
 -   **React Router DOM**
 -   **Chart.js** (or any chart library)
 -   **Context API** for auth

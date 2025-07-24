@@ -59,10 +59,10 @@ const AddTransactionForm = ({ onAdd }) => {
     return (
         <>
             <Wrapper>
-                <h3>Add Transaction</h3>
+                <h3 data-aos="fade-left">Add Transaction</h3>
 
                 <form onSubmit={handleSubmit}>
-                    <select name="type" value={form.type} onChange={handleChange}>
+                    <select name="type" value={form.type} onChange={handleChange} data-aos="fade-left">
                         <option value="expense">Expense</option>
                         <option value="income">Income</option>
                     </select>
@@ -112,7 +112,7 @@ const AddTransactionForm = ({ onAdd }) => {
                     {success && <p style={{ color: 'green' }}>✅ Saved!</p>}
                 </form>
 
-            </Wrapper>
+            </Wrapper >
         </>
     );
 };

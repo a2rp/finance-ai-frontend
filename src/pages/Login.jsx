@@ -38,14 +38,28 @@ const Login = () => {
         <>
             <Styled.Wrapper>
                 <div className="main">
-                    <h1 className='heading'>Login</h1>
+                    <h1 className='heading' data-aos="zoom-in">Login</h1>
                     <form onSubmit={handleSubmit}>
-                        <input name="email" placeholder="Email" onChange={handleChange} required />
-                        <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
-                        {/* <NavLink to="/" className={"forgetPasswordLink"}>Forget your password?</NavLink> */}
+                        <input
+                            name="email"
+                            placeholder="Email"
+                            onChange={handleChange}
+                            required
+                            data-aos="fade-left"
+                        />
+                        <input
+                            name="password"
+                            type="password"
+                            placeholder="Password"
+                            onChange={handleChange}
+                            required
+                            data-aos="fade-right"
+                        />
+
                         <button
                             type="submit"
                             disabled={isLoading}
+                            data-aos="fade-up"
                         >
                             {isLoading ? <>
                                 <CircularProgress size={16} style={{ color: '#fff' }} />
@@ -53,7 +67,9 @@ const Login = () => {
                         </button>
                     </form>
                     <div className="createAccount">
-                        <p>Don't have an account? <NavLink to="/register">Register</NavLink></p>
+                        <p
+                            data-aos="fade-right"
+                        >Don't have an account? <NavLink to="/register">Register</NavLink></p>
                     </div>
                 </div>
             </Styled.Wrapper>
@@ -83,6 +99,7 @@ const Styled = {
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             transition: box-shadow 0.2s ease;
+            overflow: hidden;
 
             &:hover {
                 box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);

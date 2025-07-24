@@ -69,20 +69,22 @@ export const Styled = {
             height: 100%;
 
             ul {
-                list-style: none;
+                list-style-type: none;
 
                 li {
-                    a,
+                    .link,
                     .logout {
-                        /* border: 1px solid #fff; */
+                        /* border: 1px solid #f00; */
                         width: 100%;
-                        display: inline-flex;
+                        height: 40px;
+                        display: flex;
                         align-items: center;
                         gap: 15px;
                         color: white;
                         text-decoration: none;
                         padding: 5px 15px;
                         cursor: pointer;
+
                         &:hover {
                             background-color: #333;
                         }
