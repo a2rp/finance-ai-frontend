@@ -53,6 +53,7 @@ export const Styled = {
         right: 0;
         width: 200px;
         background-color: #000;
+        z-index: 9999;
         animation: appearDropdownMenuWrapper 0.2s linear 1 forwards;
         @keyframes appearDropdownMenuWrapper {
             from {

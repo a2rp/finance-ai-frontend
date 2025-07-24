@@ -107,17 +107,17 @@ const Layout = ({ children }) => {
         setMenuActive(prev => !prev);
     };
 
-    // useEffect(() => {
-    //     const handleClickOutside = (e) => {
-    //         if (menuRef.current && !menuRef.current.contains(e.target)) {
-    //             setMenuActive(false);
-    //         }
-    //     };
-    //     document.addEventListener("mousedown", handleClickOutside);
-    //     return () => {
-    //         document.removeEventListener("mousedown", handleClickOutside);
-    //     };
-    // }, []);
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (menuRef.current && !menuRef.current.contains(e.target)) {
+                setMenuActive(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
 
     return (
         <Styled.Wrapper>
