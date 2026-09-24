@@ -22,7 +22,7 @@ const Register = () => {
         } catch (err) {
             toast.error(err?.response?.data?.message || 'Registration failed');
             if (err.response?.status === 429) {
-                toast.error("🚫 Too many requests. Please wait a moment.");
+                toast.error("Too many requests. Please wait a moment.");
             } else {
                 toast.error(err.response?.data?.message || "Something went wrong");
             }
@@ -35,7 +35,7 @@ const Register = () => {
                 <div className="main">
                     <h1
                         className='heading'
-                        data-aos="zoom-in"
+
                     >Register</h1>
                     <form onSubmit={handleSubmit}>
                         <input
@@ -43,14 +43,14 @@ const Register = () => {
                             placeholder="Name"
                             onChange={handleChange}
                             required
-                            data-aos="fade-left"
+
                         />
                         <input
                             name="email"
                             placeholder="Email"
                             onChange={handleChange}
                             required
-                            data-aos="fade-right"
+
                         />
                         <input
                             name="password"
@@ -58,16 +58,16 @@ const Register = () => {
                             placeholder="Password"
                             onChange={handleChange}
                             required
-                            data-aos="fade-left"
+
                         />
                         <button
                             type="submit"
-                            data-aos="zoom-in"
+
                         >Register</button>
                     </form>
                     <div className="alreadyHaveAnAccount">
                         <p
-                            data-aos="fade-right"
+
                         >
                             Already have an account? <a href="/login">Login</a>
                         </p>
@@ -106,18 +106,18 @@ const Styled = {
                 text-align: center;
                 font-size: 24px;
             }
-    
+
             form {
                 display: flex;
                 flex-direction: column;
                 gap: 15px;
-    
+
                 input {
                     padding: 10px;
                     border: 1px solid #ccc;
                     border-radius: 4px;
                 }
-    
+
                 button {
                     height: 40px;
                     background: #007bff;
@@ -125,7 +125,7 @@ const Styled = {
                     border: none;
                     border-radius: 4px;
                     cursor: pointer;
-    
+
                     &:hover {
                         background: #0056b3;
                     }

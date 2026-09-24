@@ -25,7 +25,7 @@ const Login = () => {
         } catch (err) {
             toast.error(err?.response?.data?.message || 'Login failed');
             if (err.response?.status === 429) {
-                toast.error("🚫 Too many requests. Please wait a moment.");
+                toast.error("Too many requests. Please wait a moment.");
             } else {
                 toast.error(err.response?.data?.message || "Something went wrong");
             }
@@ -38,14 +38,14 @@ const Login = () => {
         <>
             <Styled.Wrapper>
                 <div className="main">
-                    <h1 className='heading' data-aos="zoom-in">Login</h1>
+                    <h1 className='heading'>Login</h1>
                     <form onSubmit={handleSubmit}>
                         <input
                             name="email"
                             placeholder="Email"
                             onChange={handleChange}
                             required
-                            data-aos="fade-left"
+
                         />
                         <input
                             name="password"
@@ -53,13 +53,13 @@ const Login = () => {
                             placeholder="Password"
                             onChange={handleChange}
                             required
-                            data-aos="fade-right"
+
                         />
 
                         <button
                             type="submit"
                             disabled={isLoading}
-                            data-aos="fade-up"
+
                         >
                             {isLoading ? <>
                                 <CircularProgress size={16} style={{ color: '#fff' }} />
@@ -68,7 +68,7 @@ const Login = () => {
                     </form>
                     <div className="createAccount">
                         <p
-                            data-aos="fade-right"
+
                         >Don't have an account? <NavLink to="/register">Register</NavLink></p>
                     </div>
                 </div>
@@ -110,12 +110,12 @@ const Styled = {
                 text-align: center;
                 font-size: 24px;
             }
-    
+
             form {
                 display: flex;
                 flex-direction: column;
                 gap: 15px;
-    
+
                 input {
                     padding: 10px;
                     border: 1px solid #ccc;
@@ -129,14 +129,14 @@ const Styled = {
                     display: inline-flex;
                     justify-content: center;
                     align-items: center;
-                    color: #007bff; 
+                    color: #007bff;
                     text-decoration: none;
 
                     &:hover {
                         text-decoration: underline;
                     }
                 }
-    
+
                 button {
                     display: block;
                     background: #007bff;
@@ -146,7 +146,7 @@ const Styled = {
                     cursor: pointer;
                     overflow: hidden;
                     height: 40px;
-    
+
                     &:hover {
                         background: #0056b3;
                     }

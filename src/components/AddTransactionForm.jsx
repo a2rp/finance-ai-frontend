@@ -16,7 +16,6 @@ const AddTransactionForm = ({ onAdd }) => {
     });
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
-    const [showForm, setShowForm] = useState(false);
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -46,9 +45,8 @@ const AddTransactionForm = ({ onAdd }) => {
             onAdd();
             setForm({ ...form, amount: '', category: '', description: '' });
         } catch (error) {
-            console.error('Add transaction error:', err.message);
             if (error.response?.status === 429) {
-                toast.error("🚫 Too many requests. Please wait a moment.");
+                toast.error("Too many requests. Please wait a moment.");
             } else {
                 toast.error(error.response?.data?.message || "Something went wrong");
             }
@@ -59,10 +57,10 @@ const AddTransactionForm = ({ onAdd }) => {
     return (
         <>
             <Wrapper>
-                <h3 data-aos="fade-left">Add Transaction</h3>
+                <h3>Add Transaction</h3>
 
                 <form onSubmit={handleSubmit}>
-                    <select name="type" value={form.type} onChange={handleChange} data-aos="fade-left">
+                    <select name="type" value={form.type} onChange={handleChange}>
                         <option value="expense">Expense</option>
                         <option value="income">Income</option>
                     </select>

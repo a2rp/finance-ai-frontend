@@ -39,16 +39,15 @@ const IncomeExpenseChart = () => {
                 const sortedData = Object.values(dataByMonth).sort((a, b) => a.month.localeCompare(b.month));
                 setChartData(sortedData);
             } catch (err) {
-                console.error('Chart fetch failed:', err);
                 if (err.response?.status === 429) {
-                    toast.error("🚫 Too many requests. Please wait a moment.");
+                    toast.error("Too many requests. Please wait a moment.");
                 } else {
                     toast.error(err.response?.data?.message || "Something went wrong");
                 }
             }
         };
         fetchTransactions();
-    }, []);
+    }, [user?.token]);
 
     return (
         <>

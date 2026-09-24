@@ -27,16 +27,16 @@ const Dashboard = () => {
                             color: '#000',
                             fontStyle: 'italic'
                         }}
-                        data-aos="zoom-in"
+
                     >
                         ⚠️ Backend is hosted on free Render server. It may take time to respond if inactive.
                     </div>
                     <Styled.Heading
-                        data-aos="fade-left"
+
                     >Dashboard</Styled.Heading>
 
                     <section
-                        data-aos="slide-up"
+
                     >
                         <AiAdvisor />
                     </section>
@@ -44,14 +44,14 @@ const Dashboard = () => {
                     <Styled.SummaryFormWrapper>
                         <div className="col">
                             <section
-                                data-aos="fade-right"
+
                             >
                                 <AddTransactionForm onAdd={handleAdd} />
                             </section>
                         </div>
                         <div className="col">
                             <section
-                                data-aos="fade-left"
+
                             >
                                 <SummaryCards key={`summary-${refreshKey}`} />
                             </section>
@@ -61,14 +61,14 @@ const Dashboard = () => {
                     <Styled.GraphWrapper>
                         <div className="col">
                             <section
-                                data-aos="fade-right"
+
                             >
                                 <IncomeExpenseChart key={`income-${refreshKey}`} />
                             </section>
                         </div>
                         <div className="col">
                             <section
-                                data-aos="fade-left"
+
                             >
                                 <ExpensePieChart key={`expense-${refreshKey}`} />
                             </section>
@@ -105,7 +105,7 @@ const Styled = {
         @media (width<800px) {
             flex-direction: column;
         }
-        
+
         .col {
             /* border: 1px solid #f00; */
             width: 100%;
@@ -122,7 +122,7 @@ const Styled = {
         @media (width<800px) {
             flex-direction: column;
         }
-        
+
         .col {
             /* border: 1px solid #f00; */
             width: 100%;

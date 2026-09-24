@@ -11,7 +11,7 @@ import { toast } from 'react-toastify';
 import ClearAllModal from './ClearAllModal';
 import API_BASE_URL from '../api';
 
-const TransactionTable = ({ refresh, onUpdate }) => {
+const TransactionTable = ({ onUpdate }) => {
     const { user } = useAuth();
     const [transactions, setTransactions] = useState([]);
     const [filterType, setFilterType] = useState('all');
@@ -25,16 +25,15 @@ const TransactionTable = ({ refresh, onUpdate }) => {
                 });
                 setTransactions(res.data);
             } catch (err) {
-                console.error('Table fetch error:', err.message);
                 if (err.response?.status === 429) {
-                    toast.error("🚫 Too many requests. Please wait a moment.");
+                    toast.error("Too many requests. Please wait a moment.");
                 } else {
                     toast.error(err.response?.data?.message || "Something went wrong");
                 }
             }
         };
         fetch();
-    }, []);
+    }, [user?.token]);
 
     const filtered = transactions.filter((txn) => {
         const matchType = filterType === 'all' || txn.type === filterType;
@@ -42,7 +41,7 @@ const TransactionTable = ({ refresh, onUpdate }) => {
         return matchType && matchSearch;
     });
 
-    // delete 
+    // delete
     const [showModal, setShowModal] = useState(false);
     const [selectedId, setSelectedId] = useState(null);
 
@@ -61,9 +60,8 @@ const TransactionTable = ({ refresh, onUpdate }) => {
             setSelectedId(null);
             onUpdate();
         } catch (err) {
-            console.error('Delete failed:', err.message);
             if (err.response?.status === 429) {
-                toast.error("🚫 Too many requests. Please wait a moment.");
+                toast.error("Too many requests. Please wait a moment.");
             } else {
                 toast.error(err.response?.data?.message || "Something went wrong");
             }
@@ -83,42 +81,19 @@ const TransactionTable = ({ refresh, onUpdate }) => {
     const [showClearModal, setShowClearModal] = useState(false);
 
     const [isLoading, setIsLoading] = useState(false);
-    const handleClearAll = async () => {
-        const confirmed = window.confirm("Are you sure you want to delete all transactions?");
-        if (!confirmed) return;
-        setIsLoading(true);
-
-        try {
-            await axios.delete(`${API_BASE_URL}/transactions/clear`, {
-                headers: { Authorization: `Bearer ${user.token}` },
-            });
-            toast.success("All transactions deleted");
-            setTransactions([]); // reset state
-        } catch (err) {
-            toast.error("Failed to delete transactions");
-            console.error(err.message);
-            if (err.response?.status === 429) {
-                toast.error("🚫 Too many requests. Please wait a moment.");
-            } else {
-                toast.error(err.response?.data?.message || "Something went wrong");
-            }
-        } finally {
-            setIsLoading(false);
-        }
-    };
 
     return (
         <>
             <Wrapper>
                 <Top>
                     <section
-                        data-aos="slide-up"
+
                     >
                         <h3>Transactions</h3>
                     </section>
 
                     <section
-                        data-aos="fade-in"
+
                     >
                         <Controls>
                             <input
@@ -152,7 +127,7 @@ const TransactionTable = ({ refresh, onUpdate }) => {
                     </thead>
                     <tbody>
                         {filtered.map((txn) => (
-                            <tr key={txn._id} data-aos="fade-up">
+                            <tr key={txn._id}>
                                 <td>{txn.type}</td>
                                 <td>₹ {txn.amount.toLocaleString()}</td>
                                 <td>{txn.category}</td>
@@ -201,9 +176,8 @@ const TransactionTable = ({ refresh, onUpdate }) => {
                             onUpdate();
                         } catch (err) {
                             toast.error("Failed to delete transactions");
-                            console.error(err.message);
                             if (err.response?.status === 429) {
-                                toast.error("🚫 Too many requests. Please wait a moment.");
+                                toast.error("Too many requests. Please wait a moment.");
                             } else {
                                 toast.error(err.response?.data?.message || "Something went wrong");
                             }

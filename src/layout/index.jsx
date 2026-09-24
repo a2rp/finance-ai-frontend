@@ -1,4 +1,4 @@
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { Styled } from './styled';
 import { useAuth } from '../context/AuthContext';
 import { FaChevronDown } from 'react-icons/fa';
@@ -40,7 +40,7 @@ import { CiLogout } from 'react-icons/ci';
 //         <>
 //             <Styled.Wrapper>
 //                 <Styled.Header>
-//                     <Styled.AppName>Finance AI</Styled.AppName>
+//                     <Styled.AppName><img src={`${import.meta.env.BASE_URL}logo.png`} alt="Ashish Ranjan logo" />Finance Workspace</Styled.AppName>
 //                     <Styled.UserMenu onClick={handleMenuClick} ref={menuRef}>
 //                         <Styled.User>{user?.name}</Styled.User>
 //                         <Styled.Menu>
@@ -122,7 +122,7 @@ const Layout = ({ children }) => {
     return (
         <Styled.Wrapper>
             <Styled.Header>
-                <Styled.AppName>Finance AI</Styled.AppName>
+                <Styled.AppName><img src={`${import.meta.env.BASE_URL}logo.png`} alt="Ashish Ranjan logo" />Finance Workspace</Styled.AppName>
                 <Styled.UserMenu onClick={handleMenuClick}>
                     <Styled.User>{user?.name}</Styled.User>
                     <Styled.Menu>

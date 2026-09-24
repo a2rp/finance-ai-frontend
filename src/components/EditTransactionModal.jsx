@@ -30,9 +30,8 @@ const EditTransactionModal = ({ txn, onClose, onUpdated }) => {
             });
             onUpdated();
         } catch (err) {
-            console.error('Update error:', err.message);
             if (err.response?.status === 429) {
-                toast.error("🚫 Too many requests. Please wait a moment.");
+                toast.error("Too many requests. Please wait a moment.");
             } else {
                 toast.error(err.response?.data?.message || "Something went wrong");
             }

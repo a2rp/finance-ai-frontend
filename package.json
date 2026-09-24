@@ -1,5 +1,5 @@
 {
-    "name": "frontend",
+    "name": "finance-ai-frontend",
     "private": true,
     "version": "0.0.0",
     "type": "module",
@@ -15,7 +15,6 @@
         "@emotion/react": "^11.14.0",
         "@emotion/styled": "^11.14.1",
         "@mui/material": "^7.2.0",
-        "aos": "^2.3.4",
         "axios": "^1.10.0",
         "date-fns": "^4.1.0",
         "react": "^18.2.0",
@@ -36,5 +35,6 @@
         "eslint-plugin-react-refresh": "^0.4.19",
         "globals": "^16.0.0",
         "vite": "^6.3.5"
-    }
+    },
+    "homepage": "https://a2rp.github.io/finance-ai-frontend/"
 }

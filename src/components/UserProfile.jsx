@@ -14,7 +14,7 @@ const Wrapper = styled.div`
     border-radius: 12px;
     box-shadow: 0 0 10px #00000010;
     overflow: hidden;
-    
+
     h2 {
         margin-bottom: 15px;;
     }
@@ -75,17 +75,14 @@ const UserProfile = () => {
                     }
                 }
             );
-            console.log('Profile updated:', res.data);
-
             setUser({ ...user, ...res.data });
             localStorage.setItem('user', JSON.stringify({ ...user, ...res.data }));
 
             toast('Profile updated successfully');
-        } catch (err) {
-            // console.error(err);
+        } catch (err) {;
             toast.error(err?.response?.data?.message || 'Update failed');
             if (err.response?.status === 429) {
-                toast.error("🚫 Too many requests. Please wait a moment.");
+                toast.error("Too many requests. Please wait a moment.");
             } else {
                 toast.error(err.response?.data?.message || "Something went wrong");
             }
@@ -97,7 +94,7 @@ const UserProfile = () => {
     return (
         <Wrapper>
             <h2
-                data-aos="zoom-in"
+
             >Edit Profile</h2>
             <form onSubmit={handleSubmit}>
                 <Input
@@ -106,7 +103,7 @@ const UserProfile = () => {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Full Name"
-                    data-aos="fade-left"
+
                 />
                 <Input
                     type="email"
@@ -114,7 +111,7 @@ const UserProfile = () => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Email"
-                    data-aos="fade-right"
+
                 />
                 <Input
                     type="text"
@@ -122,7 +119,7 @@ const UserProfile = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="Phone"
-                    data-aos="fade-left"
+
                 />
                 <Input
                     type="password"
@@ -130,12 +127,12 @@ const UserProfile = () => {
                     value={formData.password}
                     onChange={handleChange}
                     placeholder="New Password (leave blank to keep same)"
-                    data-aos="fade-right"
+
                 />
                 <Button
                     type="submit"
                     disabled={isLoading}
-                    data-aos="zoom-in"
+
                 >
 
                     {isLoading ? <>Updating...</> : <>Update Profile</>}

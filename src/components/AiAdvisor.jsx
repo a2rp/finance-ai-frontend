@@ -23,9 +23,8 @@ const AiAdvisor = () => {
             setAdvice(res.data.advice);
         } catch (err) {
             setAdvice('❌ Error fetching advice.');
-            console.error('AI error:', err.message);
             if (err.response?.status === 429) {
-                toast.error("🚫 Too many requests. Please wait a moment.");
+                toast.error("Too many requests. Please wait a moment.");
             } else {
                 toast.error(err.response?.data?.message || "Something went wrong");
             }
@@ -37,7 +36,7 @@ const AiAdvisor = () => {
         <>
             <Wrapper>
                 <fieldset>
-                    <legend>Smart AI Tips</legend>
+                    <legend>Smart Financial Tips</legend>
                     <h3 onClick={handleAsk} disabled={loading} className='adviceButton'>
                         {loading ? 'Analyzing...' : 'Click here to get saving & investment advice'}
                     </h3>

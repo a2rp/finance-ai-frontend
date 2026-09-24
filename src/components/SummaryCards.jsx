@@ -23,16 +23,15 @@ const SummaryCards = () => {
                 });
                 setSummary(res.data);
             } catch (err) {
-                console.error('Summary fetch failed:', err);
                 if (err.response?.status === 429) {
-                    toast.error("🚫 Too many requests. Please wait a moment.");
+                    toast.error("Too many requests. Please wait a moment.");
                 } else {
                     toast.error(err.response?.data?.message || "Something went wrong");
                 }
             }
         };
         fetchSummary();
-    }, []);
+    }, [user?.token]);
 
     return (
         <Wrapper>

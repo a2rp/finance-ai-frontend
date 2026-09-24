@@ -1,66 +1,39 @@
-# 🧠 Finance AI - Frontend
+# Finance Workspace
 
-## 🚀 Live Demo
+Finance Workspace is a React and Vite dashboard for managing personal transactions, reviewing balance summaries and viewing practical finance insights from the connected API.
 
-👉 [Click here to view the live site](https://finance-ai-frontend.netlify.app/)
+![Finance Workspace preview](screenshot.png)
 
--   live: https://finance-ai-frontend.netlify.app/
+## Features
 
-This is the **React.js frontend** for the Finance AI application. It provides a beautiful and intuitive interface for managing personal finances, visualizing expenses, and getting AI-driven advice.
+- Login and registration flow
+- Dashboard balance and transaction summaries
+- Add, edit, delete and filter transactions
+- Expense and income visualizations
+- Profile management and responsive navigation
+- Toast feedback and protected routes
 
-## 📦 Tech Stack
+## Tech stack
 
--   **React 18 + Vite**
--   **Styled-Components**
--   **Aos animations**
--   **React Router DOM**
--   **Chart.js** (or any chart library)
--   **Context API** for auth
--   **LocalStorage** for theme & auth persistence
+React, Vite, Material UI, styled-components, React Router, Recharts, Axios and React Icons.
 
-## ⚙️ Features
+## Run locally
 
--   ✅ User Login & Register
--   ✅ Dashboard with balance summary
--   ✅ Add/Edit/Delete transactions
--   ✅ Filters and search
--   ✅ AI-driven financial advice (via API)
--   ✅ Profile page
--   ✅ Mobile responsive
--   ✅ Toast notifications
--   ✅ Secure frontend validations
+    npm install
+    npm run dev
 
-## 🚀 Run Locally
+The dashboard expects the existing finance API configuration used by the project.
 
-```bash
-- cd frontend
-- npm install
-- npm run dev
-```
+## Deployment
 
-🔐 Note: This project is purely for learning. Do not use in production without proper security and optimization.
+Live: [https://a2rp.github.io/finance-ai-frontend/](https://a2rp.github.io/finance-ai-frontend/)
+
+Deploy with:
+
+    npm run deploy
 
 ## Links
 
-- Portfolio: [https://www.ashishranjan.net](https://www.ashishranjan.net)
-- GitHub: [https://github.com/a2rp](https://github.com/a2rp)
-- CodePen: [https://codepen.io/ash1198](https://codepen.io/ash1198)
-- LinkedIn: [https://www.linkedin.com/in/aashishranjan](https://www.linkedin.com/in/aashishranjan)
-- Facebook: [https://www.facebook.com/theash.ashish/](https://www.facebook.com/theash.ashish/)
-- YouTube: [https://www.youtube.com/@ashishranjan-ashz?sub_confirmation=1](https://www.youtube.com/@ashishranjan-ashz?sub_confirmation=1)
-- Email: [ash.ranjan09@gmail.com](mailto:ash.ranjan09@gmail.com)
-
-## Support
-
-- Support: [https://a2rp-donation-page.netlify.app/](https://a2rp-donation-page.netlify.app/)
-- Buy Me A Coffee: [https://buymeacoffee.com/a2rp](https://buymeacoffee.com/a2rp)
-- Patreon: [https://patreon.com/a2rp](https://patreon.com/a2rp)
-<!-- Project links -->
-
-## Links
-
-- Live: [https://a2rp.github.io/finance-ai-frontend/](https://a2rp.github.io/finance-ai-frontend/)
-- Repository: [https://github.com/a2rp/finance-ai-frontend](https://github.com/a2rp/finance-ai-frontend)
 - Portfolio: [https://www.ashishranjan.net/](https://www.ashishranjan.net/)
 - GitHub: [https://github.com/a2rp](https://github.com/a2rp)
 - CodePen: [https://codepen.io/ash1198](https://codepen.io/ash1198)
@@ -73,4 +46,4 @@ This is the **React.js frontend** for the Finance AI application. It provides a 
 
 - Support: [https://a2rp-donation-page.netlify.app/](https://a2rp-donation-page.netlify.app/)
 - Buy Me a Coffee: [https://buymeacoffee.com/a2rp](https://buymeacoffee.com/a2rp)
-- Patreon: [https://www.patreon.com/a2rp](https://www.patreon.com/a2rp)
+- Patreon: [https://patreon.com/a2rp](https://patreon.com/a2rp)

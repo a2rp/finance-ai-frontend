@@ -24,7 +24,7 @@ export const Styled = {
         gap: 20px;
         padding: 0 15px;
     `,
-    AppName: styled.h1``,
+    AppName: styled.h1`display: flex; align-items: center; gap: 10px; font-size: 18px; img { width: 34px; height: 34px; object-fit: contain; border-radius: 8px; }`,
     UserMenu: styled.div`
         display: flex;
         align-items: center;
@@ -54,17 +54,6 @@ export const Styled = {
         width: 200px;
         background-color: #000;
         z-index: 9999;
-        animation: appearDropdownMenuWrapper 0.2s linear 1 forwards;
-        @keyframes appearDropdownMenuWrapper {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
         .menuWrapper {
             /* border: 1px solid #f00; */
             height: 100%;
