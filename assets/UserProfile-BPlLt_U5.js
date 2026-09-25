@@ -1,4 +1,4 @@
-import{r as l,u as j,j as e,d as p,y as d}from"./index-CLCBLA3I.js";import{a as y,A as v}from"./index-SG7PDS-F.js";const P=p.div`
+import{r as l,u as j,j as e,d as p,y as d}from"./index-BGAquoYm.js";import{a as y,A as v}from"./index-SG7PDS-F.js";const P=p.div`
     max-width: 500px;
     margin: 40px auto;
     background: #fff;
@@ -6,7 +6,7 @@ import{r as l,u as j,j as e,d as p,y as d}from"./index-CLCBLA3I.js";import{a as 
     border-radius: 12px;
     box-shadow: 0 0 10px #00000010;
     overflow: hidden;
-    
+
     h2 {
         margin-bottom: 15px;;
     }
