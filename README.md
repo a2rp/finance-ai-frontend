@@ -10,7 +10,7 @@ Finance Workspace is a React and Vite dashboard for managing personal transactio
 - Dashboard balance and transaction summaries
 - Add, edit, delete and filter transactions
 - Expense and income visualizations
-- Profile management and responsive navigation
+- Profile management, fixed responsive navigation, polished footer, and a floating go-to-top control
 - Toast feedback and protected routes
 
 ## Tech stack

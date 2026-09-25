@@ -4,8 +4,10 @@ import PrivateRoute from "./components/PrivateRoute";
 import Layout from "./layout";
 import { ToastContainer } from "react-toastify";
 import PublicRoute from "./components/PublicRoute";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Box, CircularProgress } from "@mui/material";
+import { FiArrowUp } from "react-icons/fi";
+import Footer from "./components/Footer";
 
 const Login = lazy(() => import("./pages/Login"));
 const Register = lazy(() => import("./pages/Register"));
@@ -91,6 +93,36 @@ function AppRoutes() {
     );
 }
 
+const GoToTop = () => {
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const updateVisibility = () => {
+            setIsVisible(window.scrollY > 420);
+        };
+
+        window.addEventListener("scroll", updateVisibility, { passive: true });
+        updateVisibility();
+
+        return () => window.removeEventListener("scroll", updateVisibility);
+    }, []);
+
+    if (!isVisible) {
+        return null;
+    }
+
+    return (
+        <button
+            className="goTopButton"
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            aria-label="Go to top"
+            title="Go to top"
+        >
+            <FiArrowUp aria-hidden="true" />
+        </button>
+    );
+};
 function App() {
     return (
         <>
@@ -102,8 +134,10 @@ function App() {
                     }}
                 >
                     <AppRoutes />
+                    <GoToTop />
                 </BrowserRouter>
             </AuthProvider>
+            <Footer />
             <ToastContainer />
         </>
     );

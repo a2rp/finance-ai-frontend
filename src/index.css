@@ -23,3 +23,40 @@ body {
     background-color: #fff;
     color: #aaa;
 }
+
+.goTopButton {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1200;
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border: 1px solid #0b6bcb;
+    border-radius: 50%;
+    color: #ffffff;
+    background: #0b6bcb;
+    cursor: pointer;
+    transition: border-color 160ms ease, box-shadow 160ms ease, text-shadow 160ms ease;
+}
+
+.goTopButton:hover,
+.goTopButton:focus-visible {
+    border-color: #063b72;
+    box-shadow: 0 0 20px rgba(11, 107, 203, 0.32);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.45);
+    outline: none;
+}
+
+.goTopButton svg {
+    width: 18px;
+    height: 18px;
+}
+
+@media (max-width: 520px) {
+    .goTopButton {
+        right: 16px;
+        bottom: 16px;
+    }
+}
