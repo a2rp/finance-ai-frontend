@@ -29,7 +29,7 @@ const Dashboard = () => {
                         }}
 
                     >
-                        ⚠️ Backend is hosted on free Render server. It may take time to respond if inactive.
+                        ⚠️ If the API has been idle, its first response may take a little longer.
                     </div>
                     <Styled.Heading
 

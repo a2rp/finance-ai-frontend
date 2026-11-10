@@ -66,9 +66,11 @@ const UserProfile = () => {
         e.preventDefault();
         setIsLoading(true);
         try {
+            const { password, ...profileFields } = formData;
+            const profileUpdate = password ? { ...profileFields, password } : profileFields;
             const res = await axios.put(
                 `${API_BASE_URL}/users/profile`,
-                formData,
+                profileUpdate,
                 {
                     headers: {
                         Authorization: `Bearer ${user.token}`
@@ -79,8 +81,7 @@ const UserProfile = () => {
             localStorage.setItem('user', JSON.stringify({ ...user, ...res.data }));
 
             toast('Profile updated successfully');
-        } catch (err) {;
-            toast.error(err?.response?.data?.message || 'Update failed');
+        } catch (err) {
             if (err.response?.status === 429) {
                 toast.error("Too many requests. Please wait a moment.");
             } else {
@@ -103,6 +104,9 @@ const UserProfile = () => {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Full Name"
+                    minLength={2}
+                    maxLength={80}
+                    required
 
                 />
                 <Input
@@ -111,6 +115,7 @@ const UserProfile = () => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Email"
+                    required
 
                 />
                 <Input
@@ -119,6 +124,7 @@ const UserProfile = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="Phone"
+                    maxLength={32}
 
                 />
                 <Input
@@ -127,6 +133,8 @@ const UserProfile = () => {
                     value={formData.password}
                     onChange={handleChange}
                     placeholder="New Password (leave blank to keep same)"
+                    minLength={8}
+                    maxLength={72}
 
                 />
                 <Button

@@ -18,14 +18,15 @@ const EditTransactionModal = ({ txn, onClose, onUpdated }) => {
         e.preventDefault();
         setLoading(true);
 
-        if (form.amount <= 0) {
+        const amount = Number(form.amount);
+        if (!Number.isFinite(amount) || amount <= 0) {
             toast.error("Amount must be greater than zero");
             setLoading(false);
             return;
         }
 
         try {
-            await axios.put(`${API_BASE_URL}/transactions/${txn._id}`, form, {
+            await axios.put(`${API_BASE_URL}/transactions/${txn._id}`, { ...form, amount }, {
                 headers: { Authorization: `Bearer ${user.token}` },
             });
             onUpdated();
@@ -50,7 +51,7 @@ const EditTransactionModal = ({ txn, onClose, onUpdated }) => {
                             <option value="expense">Expense</option>
                             <option value="income">Income</option>
                         </select>
-                        <input type="number" name="amount" value={form.amount} onChange={handleChange} required />
+                        <input type="number" name="amount" value={form.amount} onChange={handleChange} min="0.01" step="0.01" required />
                         <input type="text" name="category" value={form.category} onChange={handleChange} required />
                         <input type="text" name="description" value={form.description} onChange={handleChange} />
                         <input type="date" name="date" value={form.date.slice(0, 10)} onChange={handleChange} />

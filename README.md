@@ -19,10 +19,14 @@ React, Vite, Material UI, styled-components, React Router, Recharts, Axios and R
 
 ## Run locally
 
+Requires Node.js 20 or newer and npm.
+
     npm install
     npm run dev
 
-The dashboard expects the existing finance API configuration used by the project.
+Create .env.local from .env.example and set VITE_BACKEND_URL if needed. The dashboard uses `http://localhost:5000/api` by default during local development. Set `VITE_BACKEND_URL` to your API base URL, including `/api`, when it runs elsewhere. The backend must allow the frontend origin in `CORS_ORIGINS`; for Vite's default dev server, include `http://localhost:5173`. For the deployed GitHub Pages app, include `https://a2rp.github.io` in the backend's allowed origins.
+
+AI budgeting tips are optional. The API sends aggregated transaction totals by category to Groq to generate them; review the backend's privacy notes before enabling that endpoint.
 
 ## Deployment
 

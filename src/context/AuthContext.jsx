@@ -2,10 +2,22 @@ import { createContext, useContext, useState } from 'react';
 
 const AuthContext = createContext();
 
+const getStoredUser = () => {
+    try {
+        const storedUser = JSON.parse(localStorage.getItem('user'));
+        if (storedUser && typeof storedUser.token === 'string' && storedUser.token) {
+            return storedUser;
+        }
+    } catch {
+        // Ignore corrupt browser storage and start with a signed-out session.
+    }
+
+    localStorage.removeItem('user');
+    return null;
+};
+
 export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(() =>
-        JSON.parse(localStorage.getItem('user')) || null
-    );
+    const [user, setUser] = useState(getStoredUser);
 
     const login = (userData) => {
         localStorage.setItem('user', JSON.stringify(userData));

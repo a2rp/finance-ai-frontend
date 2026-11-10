@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
 import styled from 'styled-components';
@@ -10,22 +10,25 @@ const Register = () => {
     const { login } = useAuth();
     const navigate = useNavigate();
     const [form, setForm] = useState({ name: '', email: '', password: '' });
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
         try {
             const res = await axios.post(`${API_BASE_URL}/users/register`, form);
             login(res.data);
             navigate('/');
         } catch (err) {
-            toast.error(err?.response?.data?.message || 'Registration failed');
             if (err.response?.status === 429) {
                 toast.error("Too many requests. Please wait a moment.");
             } else {
                 toast.error(err.response?.data?.message || "Something went wrong");
             }
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -40,6 +43,7 @@ const Register = () => {
                     <form onSubmit={handleSubmit}>
                         <input
                             name="name"
+                            type="text"
                             placeholder="Name"
                             onChange={handleChange}
                             required
@@ -47,6 +51,7 @@ const Register = () => {
                         />
                         <input
                             name="email"
+                            type="email"
                             placeholder="Email"
                             onChange={handleChange}
                             required
@@ -56,6 +61,8 @@ const Register = () => {
                             name="password"
                             type="password"
                             placeholder="Password"
+                            minLength={8}
+                            autoComplete="new-password"
                             onChange={handleChange}
                             required
 
@@ -63,13 +70,14 @@ const Register = () => {
                         <button
                             type="submit"
 
-                        >Register</button>
+                        disabled={isLoading}
+                        >{isLoading ? 'Creating account...' : 'Register'}</button>
                     </form>
                     <div className="alreadyHaveAnAccount">
                         <p
 
                         >
-                            Already have an account? <a href="/login">Login</a>
+                            Already have an account? <NavLink to="/login">Login</NavLink>
                         </p>
                     </div>
                 </div>

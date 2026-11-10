@@ -23,7 +23,6 @@ const Login = () => {
             login(res.data);
             navigate('/');
         } catch (err) {
-            toast.error(err?.response?.data?.message || 'Login failed');
             if (err.response?.status === 429) {
                 toast.error("Too many requests. Please wait a moment.");
             } else {
@@ -42,7 +41,9 @@ const Login = () => {
                     <form onSubmit={handleSubmit}>
                         <input
                             name="email"
+                            type="email"
                             placeholder="Email"
+                            autoComplete="email"
                             onChange={handleChange}
                             required
 
@@ -51,6 +52,7 @@ const Login = () => {
                             name="password"
                             type="password"
                             placeholder="Password"
+                            autoComplete="current-password"
                             onChange={handleChange}
                             required
 

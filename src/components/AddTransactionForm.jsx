@@ -25,14 +25,15 @@ const AddTransactionForm = ({ onAdd }) => {
         e.preventDefault();
         setLoading(true);
 
-        if (form.amount <= 0) {
+        const amount = Number(form.amount);
+        if (!Number.isFinite(amount) || amount <= 0) {
             toast.error("Amount must be greater than zero");
             setLoading(false);
             return;
         }
 
         try {
-            await axios.post(`${API_BASE_URL}/transactions`, form, {
+            await axios.post(`${API_BASE_URL}/transactions`, { ...form, amount }, {
                 headers: { Authorization: `Bearer ${user.token}` },
             });
             setSuccess(true);
@@ -70,6 +71,8 @@ const AddTransactionForm = ({ onAdd }) => {
                         value={form.amount}
                         onChange={handleChange}
                         placeholder="Amount"
+                        min="0.01"
+                        step="0.01"
                         required
                     />
                     {/* <input
